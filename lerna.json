@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "repos/*",
+    "mono-shared/model/*",
+    "mono-shared/utils/*"
+  ],
+  "version": "independent"
+}
