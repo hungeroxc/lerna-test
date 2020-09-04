@@ -3,7 +3,7 @@
   <div class="hello">
     <div class="bill-list-wrapper">
       <el-table
-        :data="billData"
+        :data="draftList"
         border
         height="500"
         style="width: 100%">
@@ -39,7 +39,7 @@
 
     <div class="order-list-wrapper">
       <el-table
-        :data="orderData"
+        :data="orderList"
         border
         height="500"
         style="width: 100%">
@@ -78,12 +78,7 @@
             </div>
             <div v-if="scope.row.status === 4">
               <el-button   type="info" size="small">已取消</el-button>
-              
             </div>
-            
-            
-            
-            
           </template>
         </el-table-column>
       </el-table>
@@ -100,8 +95,8 @@ export default {
 
   data() {
     return {
-      billData: [],
-      orderData: []
+      draftList: [],
+      orderList: []
     }
   },
 
@@ -110,7 +105,7 @@ export default {
     async getDraftList() {
       try {
         const res = await Draft.getDraftList()
-        this.billData = res.data
+        this.draftList = res.data
       } catch (error) {
         console.log(error)
       }
@@ -119,14 +114,14 @@ export default {
     async getOrderList() {
       try {
         const res = await Order.getOrderList()
-        this.orderData = res.data
+        this.orderList = res.data
       } catch (error) {
         console.log(error)
       }
     },
     // 下单一个票据
     orderTheBill(index) {
-      const target = this.billData.splice(index, 1)[0]
+      const target = this.draftList.splice(index, 1)[0]
       target.billId = target.id
       delete target.id
       Object.assign(target, {
@@ -135,13 +130,11 @@ export default {
         saleCompany: '公司B',
         status: 1
       })
-      this.orderData.unshift(target)
+      this.orderList.unshift(target)
     },
-    // 改变订单状态
     changeStatus(targetStatus, index) {
-      const list = JSON.parse(JSON.stringify(this.orderData))
-      list[index].status = targetStatus
-      this.orderData = list
+      const newList = Order.changeStatus(targetStatus, index, this.orderList)
+      this.orderList = newList
     }
   },
 
