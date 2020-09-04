@@ -63,13 +63,27 @@
           fixed="right"
           label="操作">
           <template slot-scope="scope">
-            <div>
-              <el-button v-if="scope.row.status === 1"  type="warning" size="small">待确认</el-button>
+            <div v-if="scope.row.status === 1">
+              <el-button   type="warning" size="small">待确认</el-button>
+              <el-button @click="changeStatus(2, scope.$index)" type="text" size="small">下一步</el-button>
+              <el-button @click="changeStatus(4, scope.$index)" type="text" size="small">取消</el-button>
+            </div>
+            <div v-if="scope.row.status === 2">
+              <el-button   type="success" size="small">已付款</el-button>
+              <el-button @click="changeStatus(3, scope.$index)" type="text" size="small">下一步</el-button>
+              <el-button @click="changeStatus(4, scope.$index)" type="text" size="small">取消</el-button>
+            </div>
+            <div v-if="scope.row.status === 3">
+              <el-button type="primary" size="small">已确认</el-button>
+            </div>
+            <div v-if="scope.row.status === 4">
+              <el-button   type="info" size="small">已取消</el-button>
+              
             </div>
             
-            <el-button v-if="scope.row.status === 2"  type="success" size="small">已付款</el-button>
-            <el-button v-if="scope.row.status === 3"  type="primary" size="small">已确认</el-button>
-            <el-button v-if="scope.row.status === 4"  type="info" size="small">已取消</el-button>
+            
+            
+            
           </template>
         </el-table-column>
       </el-table>
@@ -106,7 +120,6 @@ export default {
       try {
         const res = await Order.getOrderList()
         this.orderData = res.data
-        console.log(res)
       } catch (error) {
         console.log(error)
       }
@@ -125,8 +138,10 @@ export default {
       this.orderData.unshift(target)
     },
     // 改变订单状态
-    changeStatus(targetStatus) {
-      console.log(targetStatus)
+    changeStatus(targetStatus, index) {
+      const list = JSON.parse(JSON.stringify(this.orderData))
+      list[index].status = targetStatus
+      this.orderData = list
     }
   },
 
