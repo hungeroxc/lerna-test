@@ -2,7 +2,7 @@ import { getList } from "./api";
 
 // 测试，我就加个注释
 
-// 测试，测试生成changelog
+// 测试，生成changelog
 
 class Draft {
   // 下单票据
