@@ -6,6 +6,8 @@ import Draft from "@mono-shared-model/draft/draft";
 import Order from "@mono-shared-model/order/order";
 import "./App.css";
 
+// 该注释用于测试Commitizen
+
 function App() {
   // 票据列表数据
   const [draftList, setDraftList] = useState([]);
