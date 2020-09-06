@@ -1,11 +1,11 @@
 {
   "name": "task-a",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@mono-shared-model/draft": "^1.0.0",
-    "@mono-shared-model/order": "^1.0.0",
-    "@mono-shared-utils/request": "^1.0.0",
+    "@mono-shared-model/draft": "^1.0.1",
+    "@mono-shared-model/order": "^1.0.1",
+    "@mono-shared-utils/request": "^1.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",

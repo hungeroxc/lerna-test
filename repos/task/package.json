@@ -1,6 +1,6 @@
 {
   "name": "task",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "",
   "author": "",
@@ -12,9 +12,9 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@mono-shared-model/draft": "^1.0.0",
-    "@mono-shared-model/order": "^1.0.0",
-    "@mono-shared-utils/request": "^1.0.0",
+    "@mono-shared-model/draft": "^1.0.1",
+    "@mono-shared-model/order": "^1.0.1",
+    "@mono-shared-utils/request": "^1.0.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "vue": "^2.6.11"
