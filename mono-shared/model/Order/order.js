@@ -1,6 +1,6 @@
 import { getOrderList } from "./api";
 
-// 测试，测试changelog
+// 测试，测试生成changelog
 
 class Order {
   // 改变订单状态
