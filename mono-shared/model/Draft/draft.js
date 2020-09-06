@@ -1,11 +1,9 @@
-import {
-  getList
-} from './api'
+import { getList } from "./api";
 
 class Draft {
   // 下单票据
-  static orderTheBill = targetDraft => {
-    targetDraft.billId = targetDraft.id;
+  static orderTheDraft(targetDraft) {
+    targetDraft.draftId = targetDraft.id;
     delete targetDraft.id;
     Object.assign(targetDraft, {
       id: Number(Math.random().toFixed(0)),
@@ -13,17 +11,17 @@ class Draft {
       saleCompany: "公司B",
       status: 1,
     });
-    return targetDraft
+    return targetDraft;
   }
   // 获取票据列表
-  static getDraftList = async () => {
+  static async getDraftList() {
     try {
-      const res = await getList()
-      return res
+      const res = await getList();
+      return res;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
 
-export default Draft
+export default Draft;
