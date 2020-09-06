@@ -1,5 +1,7 @@
 import { getList } from "./api";
 
+// 测试，我就加个注释
+
 class Draft {
   // 下单票据
   static orderTheDraft(targetDraft) {
