@@ -4,7 +4,13 @@
   "scripts": {
     "c": "git-cz"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
   "devDependencies": {
+    "cz-lerna-changelog": "^2.0.3",
     "lerna": "^3.22.1"
   }
 }
