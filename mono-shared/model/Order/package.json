@@ -1,6 +1,6 @@
 {
   "name": "@mono-shared-model/order",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mono-shared-utils/request": "^1.0.1"
+    "@mono-shared-utils/request": "^1.0.2"
   }
 }
