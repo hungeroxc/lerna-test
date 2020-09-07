@@ -1,16 +1,27 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import qs from 'qs'
 
-const http = {}
-const methods = ['get', 'post', 'delete', 'put']
+type Request = (url: string, data?: object, baseUrl?: string) => Promise<any>
+
+interface HttpRequest {
+    get: Request,
+    post: Request,
+    delete: Request,
+    put: Request
+}
+
+type Method = 'get' | 'post' | 'delete' | 'put'
+
+const http = {} as HttpRequest
+const methods: Method[] = ['get', 'post', 'delete', 'put']
 
 const DEFAULTBASEURL = {
     baseURL: 'http://rap2.taobao.org:38080/app/mock/265540'
 }
 
 methods.forEach(v => {
-    http[v] = (url, data, baseUrl) => {
-        const config = {
+    http[v] = (url: string, data: any, baseUrl?: string) => {
+        const config: AxiosRequestConfig = {
             url,
             method: v,
             baseURL: baseUrl || DEFAULTBASEURL.baseURL
