@@ -10,6 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mono-shared-utils/request": "^1.0.1"
+    "@mono-shared-model/order": "^1.0.4",
+    "@mono-shared-utils/request": "^1.0.1",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.161"
   }
 }

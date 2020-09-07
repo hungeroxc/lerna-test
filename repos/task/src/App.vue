@@ -1,22 +1,17 @@
 <template>
-  <div @click="onClick" id="app">
-    <HelloWorld/>
+  <div id="app">
+    <List/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import List from './views/pages/List/index'
 // 测试
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  },
-  methods: {
-    onClick() {
-      console.log(123)
-    }
+    List
   }
 }
 </script>
